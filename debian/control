@@ -1,15 +1,28 @@
-Source: template-repository
-Section: unknown
+Source: golang-github-bshuster-repo-logrus-logstash-hook
+Section: devel
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: Debian Go Packaging Team <pkg-go-maintainers@lists.alioth.debian.org>
+Uploaders: Tim Potter <tpot@hpe.com>
+Build-Depends: debhelper-compat (= 12),
+               dh-golang,
+               golang-any,
+               golang-github-sirupsen-logrus-dev (>= 1.0.2~)
+Standards-Version: 4.5.0
+Homepage: https://github.com/bshuster-repo/logrus-logstash-hook
+Vcs-Browser: https://salsa.debian.org/go-team/packages/golang-github-bshuster-repo-logrus-logstash-hook
+Vcs-Git: https://salsa.debian.org/go-team/packages/golang-github-bshuster-repo-logrus-logstash-hook.git
+XS-Go-Import-Path: github.com/bshuster-repo/logrus-logstash-hook
+Rules-Requires-Root: no
+Testsuite: autopkgtest-pkg-go
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: golang-github-bshuster-repo-logrus-logstash-hook-dev
+Architecture: all
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+         golang-github-sirupsen-logrus-dev (>= 1.0.2~)
+Description: Logstash hook for Logrus logging library for Go
+ Logrus is a structured logger for Go (golang), completely
+ API compatible with the standard library logger.
+ .
+ This package is a hook to enable messages logged by Logrus to be sent
+ to a Logstash instance.
